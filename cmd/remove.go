@@ -21,7 +21,15 @@ func newRemoveCmd() *cobra.Command {
 		Use:     "remove <domain>",
 		Aliases: []string{"rm"},
 		Short:   "Remove a resolver entry for a domain suffix",
-		Args:    cobra.ExactArgs(1),
+		Example: `  # Remove a resolver entry (prompts for confirmation)
+  sudo splitdns remove corp.example.com
+
+  # Remove without a confirmation prompt (for automation)
+  sudo splitdns remove corp.example.com --yes
+
+  # Preview the removal without deleting anything
+  splitdns remove corp.example.com --dry-run`,
+		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return runRemove(args[0], yes, flagDryRun, noFlush)
 		},

@@ -15,7 +15,12 @@ func newTestCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "test <hostname>",
 		Short: "Test resolution of a hostname through the split-DNS layers",
-		Args:  cobra.ExactArgs(1),
+		Example: `  # Test how a hostname resolves through the split-DNS layers
+  splitdns test api.corp.example.com
+
+  # Use a longer DNS probe timeout
+  splitdns test api.corp.example.com --timeout 5`,
+		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return runTest(args[0], time.Duration(timeoutSec)*time.Second)
 		},

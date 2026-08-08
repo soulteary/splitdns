@@ -14,7 +14,12 @@ func newListCmd() *cobra.Command {
 		Use:     "list",
 		Aliases: []string{"ls"},
 		Short:   "List resolver entries",
-		Args:    cobra.NoArgs,
+		Example: `  # List all resolver entries
+  splitdns list
+
+  # Emit the list as JSON
+  splitdns list --json`,
+		Args: cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return runList()
 		},

@@ -12,7 +12,12 @@ func newFlushCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "flush",
 		Short: "Flush macOS DNS caches",
-		Args:  cobra.NoArgs,
+		Example: `  # Flush the DNS caches
+  sudo splitdns flush
+
+  # Preview the commands that would run
+  splitdns flush --dry-run`,
+		Args: cobra.NoArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return runFlush(flagDryRun)
 		},

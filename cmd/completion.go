@@ -6,9 +6,17 @@ import (
 
 func newCompletionCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:                   "completion [bash|zsh|fish|powershell]",
-		Short:                 "Generate shell completion script",
-		Long:                  "Generate a shell completion script for splitdns. Load it into your shell to enable tab completion.",
+		Use:   "completion [bash|zsh|fish|powershell]",
+		Short: "Generate shell completion script",
+		Long:  "Generate a shell completion script for splitdns. Load it into your shell to enable tab completion.",
+		Example: `  # Load completions for the current zsh session
+  source <(splitdns completion zsh)
+
+  # Install bash completions system-wide
+  splitdns completion bash | sudo tee /etc/bash_completion.d/splitdns
+
+  # Generate fish completions
+  splitdns completion fish > ~/.config/fish/completions/splitdns.fish`,
 		DisableFlagsInUseLine: true,
 		ValidArgs:             []string{"bash", "zsh", "fish", "powershell"},
 		Args:                  cobra.MatchAll(cobra.ExactArgs(1), cobra.OnlyValidArgs),

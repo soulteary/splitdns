@@ -14,7 +14,15 @@ func newSetCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "set <domain>",
 		Short: "Update fields of an existing resolver entry",
-		Args:  cobra.ExactArgs(1),
+		Example: `  # Change the nameserver for an existing entry
+  sudo splitdns set corp.example.com --nameserver 10.0.0.99
+
+  # Update several fields at once
+  sudo splitdns set internal.dev --port 5353 --timeout 5
+
+  # Preview the update without writing anything
+  splitdns set lab.example.com --nameserver 127.0.0.1 --dry-run`,
+		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return runSet(cmd, args[0], f)
 		},

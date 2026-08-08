@@ -19,6 +19,11 @@ func newVersionCmd() *cobra.Command {
 	return &cobra.Command{
 		Use:   "version",
 		Short: "Print version information",
+		Example: `  # Print version information
+  splitdns version
+
+  # Print version information as JSON
+  splitdns version --json`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return runVersion()
 		},

@@ -14,7 +14,15 @@ func newCheckCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "check [domain]",
 		Short: "Run configuration and environment diagnostics",
-		Args:  cobra.MaximumNArgs(1),
+		Example: `  # Run general environment and configuration diagnostics
+  splitdns check
+
+  # Focus the diagnostics on a specific domain
+  splitdns check corp.example.com
+
+  # Use a longer DNS probe timeout
+  splitdns check corp.example.com --timeout 5`,
+		Args: cobra.MaximumNArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			domainArg := ""
 			if len(args) == 1 {

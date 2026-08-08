@@ -25,7 +25,15 @@ func newAddCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "add <domain>",
 		Short: "Add a new resolver entry for a domain suffix",
-		Args:  cobra.ExactArgs(1),
+		Example: `  # Add a resolver that sends corp.example.com queries to 10.0.0.53
+  sudo splitdns add corp.example.com --nameserver 10.0.0.53
+
+  # Use multiple nameservers and a custom port
+  sudo splitdns add internal.dev --nameserver 10.0.0.1 --nameserver 10.0.0.2 --port 5353
+
+  # Preview the change without writing anything
+  splitdns add lab.example.com --nameserver 127.0.0.1 --dry-run`,
+		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return runAdd(args[0], f)
 		},

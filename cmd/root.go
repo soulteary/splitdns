@@ -25,9 +25,29 @@ var env system.Env
 
 func newRootCmd() *cobra.Command {
 	root := &cobra.Command{
-		Use:           "splitdns",
-		Short:         "Safely manage macOS /etc/resolver suffix-based Split DNS",
-		Long:          "splitdns safely manages macOS /etc/resolver configuration for suffix-based Split DNS.",
+		Use:   "splitdns",
+		Short: "Safely manage macOS /etc/resolver suffix-based Split DNS",
+		Long:  "splitdns safely manages macOS /etc/resolver configuration for suffix-based Split DNS.",
+		Example: `  # Route a domain suffix to a local DNS server
+  sudo splitdns add corp.example.com --nameserver 10.0.0.53
+
+  # List all managed resolver entries
+  splitdns list
+
+  # Inspect the resolver for a domain
+  splitdns show corp.example.com
+
+  # Test how a hostname resolves through the split-DNS layers
+  splitdns test api.corp.example.com
+
+  # Run environment and configuration diagnostics
+  splitdns check
+
+  # Remove a resolver entry
+  sudo splitdns remove corp.example.com
+
+  # Preview any change without touching the system
+  splitdns add internal.dev --nameserver 127.0.0.1 --dry-run`,
 		SilenceUsage:  true,
 		SilenceErrors: true,
 	}

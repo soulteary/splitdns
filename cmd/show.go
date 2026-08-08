@@ -14,7 +14,12 @@ func newShowCmd() *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "show <domain>",
 		Short: "Show a resolver entry",
-		Args:  cobra.ExactArgs(1),
+		Example: `  # Show the parsed resolver entry for a domain
+  splitdns show corp.example.com
+
+  # Print the original file contents verbatim
+  splitdns show corp.example.com --raw`,
+		Args: cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return runShow(args[0], raw)
 		},
