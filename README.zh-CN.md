@@ -37,6 +37,19 @@
 
 ## 安装
 
+### Homebrew
+
+```bash
+brew tap soulteary/tap
+brew install soulteary/tap/splitdns
+```
+
+验证:
+
+```bash
+splitdns version
+```
+
 ### 从源码安装
 
 ```bash

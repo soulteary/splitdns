@@ -41,6 +41,19 @@ It is macOS-only, ships as a single static binary, and never shells out through
 
 ## Install
 
+### Homebrew
+
+```bash
+brew tap soulteary/tap
+brew install soulteary/tap/splitdns
+```
+
+Verify:
+
+```bash
+splitdns version
+```
+
 ### From source
 
 ```bash
