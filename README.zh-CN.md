@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/soulteary/splitdns/actions/workflows/ci.yml/badge.svg)](https://github.com/soulteary/splitdns/actions/workflows/ci.yml) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Go](https://img.shields.io/github/go-mod/go-version/soulteary/splitdns)](https://github.com/soulteary/splitdns/blob/main/go.mod)
 
+![](.github/assets/splitdns-banner.png)
+
 `splitdns` 是一个小巧、安全的命令行工具,用于管理 macOS 的 `/etc/resolver`
 配置,以实现**基于域名后缀的 Split DNS(分流 DNS)**:将指定域名后缀
 (如 `lab.dev`、`corp.example.com`)的查询转发到专用 DNS 服务器,其余流量
