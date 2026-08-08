@@ -1,0 +1,44 @@
+DNS configuration
+
+resolver #1
+  nameserver[0] : 2606:4700:4700::1111
+  nameserver[1] : 223.5.5.5
+  nameserver[2] : 119.29.29.29
+  nameserver[3] : 8.8.8.8
+  if_index : 22 (utun4)
+  flags    : Supplemental, Request A records, Request AAAA records
+  reach    : 0x00000003 (Reachable,Transient Connection)
+  order    : 103800
+
+resolver #2
+  nameserver[0] : 2606:4700:4700::1111
+  nameserver[1] : 223.5.5.5
+  nameserver[2] : 119.29.29.29
+  nameserver[3] : 8.8.8.8
+  if_index : 22 (utun4)
+  flags    : Request A records, Request AAAA records
+  reach    : 0x00000003 (Reachable,Transient Connection)
+  order    : 200000
+
+resolver #3
+  domain   : local
+  options  : mdns
+  timeout  : 5
+  flags    : Request A records, Request AAAA records
+  reach    : 0x00000000 (Not Reachable)
+  order    : 300000
+
+resolver #9
+  domain   : lab.dev
+  nameserver[0] : 127.0.0.1
+  port     : 53
+  flags    : Request A records, Request AAAA records
+  reach    : 0x00030002 (Reachable,Local Address,Directly Reachable Address)
+
+DNS configuration (for scoped queries)
+
+resolver #1
+  nameserver[0] : 2606:4700:4700::1111
+  if_index : 22 (utun4)
+  flags    : Scoped, Request A records, Request AAAA records
+  reach    : 0x00000003 (Reachable,Transient Connection)

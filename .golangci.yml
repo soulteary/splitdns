@@ -1,0 +1,48 @@
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  enable:
+    - govet
+    - staticcheck
+    - errcheck
+    - ineffassign
+    - unused
+    - misspell
+    - unconvert
+    - revive
+  settings:
+    errcheck:
+      # Writes to stdout/stderr and best-effort Close in defer are not
+      # actionable failures for a CLI; ignore them explicitly.
+      exclude-functions:
+        - fmt.Fprint
+        - fmt.Fprintf
+        - fmt.Fprintln
+        - (io.Closer).Close
+    revive:
+      rules:
+        - name: exported
+        - name: package-comments
+        # Cobra RunE handlers keep the (cmd, args) signature even when unused.
+        - name: unused-parameter
+          disabled: true
+
+  exclusions:
+    rules:
+      - path: cmd/
+        text: "unused-parameter"
+      # Best-effort cleanup (Close/Remove) in tests is not actionable.
+      - path: _test\.go
+        linters:
+          - errcheck
+
+issues:
+  max-issues-per-linter: 0
+  max-same-issues: 0
+
+formatters:
+  enable:
+    - gofmt

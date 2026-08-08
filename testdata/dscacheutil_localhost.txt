@@ -1,0 +1,6 @@
+name: localhost
+ipv6_address: ::1
+
+name: localhost
+ip_address: 127.0.0.1
+
