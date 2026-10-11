@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "tests": {
+    "total": 94,
+    "passed": 94,
+    "failed": 0,
+    "skipped": 0
+  },
+  "coverage": {
+    "covered_statements": 1029,
+    "total_statements": 1312,
+    "percentage": 78.43,
+    "threshold": 0
+  },
+  "packages": [
+    {
+      "name": ".",
+      "status": "no_tests",
+      "tests": 0,
+      "failed": 0,
+      "coverage": 0
+    },
+    {
+      "name": "cmd",
+      "status": "pass",
+      "tests": 34,
+      "failed": 0,
+      "coverage": 73.83
+    },
+    {
+      "name": "internal/config",
+      "status": "pass",
+      "tests": 7,
+      "failed": 0,
+      "coverage": 90.83
+    },
+    {
+      "name": "internal/diagnose",
+      "status": "pass",
+      "tests": 15,
+      "failed": 0,
+      "coverage": 74.89
+    },
+    {
+      "name": "internal/domain",
+      "status": "pass",
+      "tests": 4,
+      "failed": 0,
+      "coverage": 94.29
+    },
+    {
+      "name": "internal/output",
+      "status": "pass",
+      "tests": 5,
+      "failed": 0,
+      "coverage": 100
+    },
+    {
+      "name": "internal/resolver",
+      "status": "pass",
+      "tests": 19,
+      "failed": 0,
+      "coverage": 75.69
+    },
+    {
+      "name": "internal/system",
+      "status": "pass",
+      "tests": 10,
+      "failed": 0,
+      "coverage": 100
+    }
+  ],
+  "failures": null
+}
