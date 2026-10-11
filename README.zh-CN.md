@@ -1,5 +1,7 @@
 # splitdns
 
+[![Go Test Coverage](./.github/coverage.svg)](./.github/go-test-report.md) [![Go Report Card](./.github/goreportcard.svg)](./.github/goreportcard-report.md)
+
 [![CI](https://github.com/soulteary/splitdns/actions/workflows/ci.yml/badge.svg)](https://github.com/soulteary/splitdns/actions/workflows/ci.yml) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Go](https://img.shields.io/github/go-mod/go-version/soulteary/splitdns)](https://github.com/soulteary/splitdns/blob/main/go.mod)
 
 ![](.github/assets/splitdns-banner.png)
