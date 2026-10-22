@@ -11,8 +11,8 @@
 
 | Check | Score |
 | ----- | ----- |
-| gofmt | 100% |
 | go_vet | 100% |
+| gofmt | 100% |
 | gocyclo | 91% |
 | ineffassign | 100% |
 | license | 100% |
@@ -22,14 +22,14 @@
 
 ### gocyclo
 
+- `internal/diagnose/check.go`
+  - Line 130: cyclomatic complexity 21 for function checkOneFile
 - `cmd/set.go`
   - Line 34: cyclomatic complexity 20 for function runSet
 - `cmd/remove.go`
   - Line 42: cyclomatic complexity 16 for function runRemove
 - `internal/domain/domain.go`
   - Line 31: cyclomatic complexity 21 for function Normalize
-- `internal/diagnose/check.go`
-  - Line 130: cyclomatic complexity 21 for function checkOneFile
 
 ---
 
