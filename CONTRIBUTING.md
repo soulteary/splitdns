@@ -8,7 +8,7 @@ to set up your environment, run the checks, and open a good pull request.
 
 - **macOS** (Apple Silicon or Intel). The tool and its integration tests are
   macOS-only.
-- **Go 1.27.2+** (see [`go.mod`](./go.mod); module path is
+- **Go 1.27.3+** (see [`go.mod`](./go.mod); module path is
   `github.com/soulteary/splitdns`).
 - Optional: [`golangci-lint`](https://golangci-lint.run/) for `make lint`.
 
@@ -83,7 +83,7 @@ changes that should appear in the release notes.
 ### 开发环境
 
 - **macOS**（Apple Silicon 或 Intel）。本工具及其集成测试仅支持 macOS。
-- **Go 1.27.2+**（详见 [`go.mod`](./go.mod)；模块路径为
+- **Go 1.27.3+**（详见 [`go.mod`](./go.mod)；模块路径为
   `github.com/soulteary/splitdns`）。
 - 可选：[`golangci-lint`](https://golangci-lint.run/)，用于 `make lint`。
 
