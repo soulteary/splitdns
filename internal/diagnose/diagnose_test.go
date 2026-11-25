@@ -1,6 +1,8 @@
 package diagnose
 
 import (
+	"errors"
+	"net"
 	"os"
 	"path/filepath"
 	"testing"
@@ -79,13 +81,23 @@ func TestParseDscacheHost(t *testing.T) {
 }
 
 func TestProbeTimeout(t *testing.T) {
-	// 203.0.113.0/24 is TEST-NET-3 (RFC 5737), guaranteed non-routable, so the
-	// UDP query will time out rather than get answered.
+	// Keep a local UDP socket open without answering queries. External DNS
+	// interception or routing must not determine whether this test times out.
+	server, err := net.ListenUDP("udp4", &net.UDPAddr{IP: net.IPv4(127, 0, 0, 1)})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Cleanup(func() { _ = server.Close() })
+	host, port, err := net.SplitHostPort(server.LocalAddr().String())
+	if err != nil {
+		t.Fatal(err)
+	}
 	start := time.Now()
-	res := Probe("203.0.113.1", "53", "example.com", 300*time.Millisecond)
+	res := Probe(host, port, "example.com", 300*time.Millisecond)
 	elapsed := time.Since(start)
-	if res.Err == nil {
-		t.Fatal("expected a timeout error")
+	var timeout net.Error
+	if !errors.As(res.Err, &timeout) || !timeout.Timeout() {
+		t.Fatalf("expected a timeout error, got %v", res.Err)
 	}
 	if elapsed > 3*time.Second {
 		t.Errorf("probe took too long: %v", elapsed)
